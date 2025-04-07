@@ -30,7 +30,7 @@
         <div class="w-100"></div>
         <div class="navbar-nav">
             <div class="nav-item text-nowrap d-flex align-items-center">
-                <span class="nav-link text-white">علی شیخ</span>
+                <span class="nav-link text-white">EnDStaGe</span>
                 <a class="nav-link text-white px-3" href="#">خروج</a>
             </div>
         </div>
