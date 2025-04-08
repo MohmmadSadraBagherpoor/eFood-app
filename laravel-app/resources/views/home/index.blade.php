@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('title', 'Home Page')
- 
+
 @section('link')
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
         integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
@@ -22,45 +22,25 @@
 @endsection
 
 @section('content')
+    @php
+        $features = \App\Models\Feature::all();
+    @endphp
     <section class="card-area layout_padding">
         <div class="container">
             <div class="row gy-5">
-                <div class="col-md-4 col-sm-6 col-xs-6">
-                    <div class="card text-center">
-                        <div class="card-body">
-                            <div class="card-icon-wrapper">
-                                <i class="bi bi-telephone-fill fs-2 text-white card-icon"></i>
+                @foreach($features as $feature)
+                    <div class="col-md-4 col-sm-6 col-xs-6">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <div class="card-icon-wrapper">
+                                    <i class="bi {{ $feature->icon }} fs-2 text-white card-icon"></i>
+                                </div>
+                                <p class="card-text fw-bold">{{ $feature->title }}</p>
+                                <p class="card-text">{{ $feature->body   }}</p>
                             </div>
-                            <p class="card-text fw-bold">لورم ایپسوم متن ساختگی</p>
-                            <p class="card-text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
-                                از طراحان گرافیک است. </p>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4 col-sm-6 col-xs-6">
-                    <div class="card text-center">
-                        <div class="card-body">
-                            <div class="card-icon-wrapper">
-                                <i class="bi bi-clock-fill fs-2 text-white card-icon"></i>
-                            </div>
-                            <p class="card-text fw-bold">لورم ایپسوم متن ساختگی</p>
-                            <p class="card-text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
-                                از طراحان گرافیک است. </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 col-xs-6">
-                    <div class="card text-center">
-                        <div class="card-body">
-                            <div class="card-icon-wrapper">
-                                <i class="bi bi-geo-alt-fill fs-2 text-white card-icon"></i>
-                            </div>
-                            <p class="card-text fw-bold">لورم ایپسوم متن ساختگی</p>
-                            <p class="card-text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
-                                از طراحان گرافیک است. </p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
