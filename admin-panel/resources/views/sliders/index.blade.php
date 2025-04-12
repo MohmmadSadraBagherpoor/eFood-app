@@ -9,10 +9,7 @@
 
     <div class="table-responsive">
         <table class="table align-middle">
-            @if($sliders->isEmpty())
-                <h4 class="text-center my-auto">اسلایدر موجودی نیست</h4>
-            @else
-                <thead>
+            <thead>
                 <tr>
                     <th>عنوان</th>
                     <th>متن</th>
@@ -20,18 +17,19 @@
                     <th>آدرس لینک</th>
                     <th>عملیات</th>
                 </tr>
-                </thead>
-                <tbody>
+            </thead>
+            <tbody>
                 @foreach ($sliders as $slider)
                     <tr>
                         <td>{{ $slider->title }}</td>
                         <td>{{ $slider->body }}</td>
                         <td>{{ $slider->link_title }}</td>
-                        <td class="dir-ltr text-center">{{ $slider->link_address }}</td>
+                        <td class="dir-ltr">{{ $slider->link_address }}</td>
                         <td>
                             <div class="d-flex">
-                                <a href="{{ route('slider.edit', ['slider' => $slider->id]) }}" class="btn btn-sm btn-outline-info me-2">ویرایش</a>
-                                <form method="POST" action="{{ route('slider.destroy', ['slider' => $slider->id]) }}">
+                                <a href="{{ route('slider.edit', ['slider' => $slider->id]) }}"
+                                    class="btn btn-sm btn-outline-info me-2">ویرایش</a>
+                                <form action="{{ route('slider.destroy', ['slider' => $slider->id]) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-sm btn-danger">حذف</button>
@@ -40,9 +38,7 @@
                         </td>
                     </tr>
                 @endforeach
-                </tbody>
-            @endif
-
+            </tbody>
         </table>
     </div>
 @endsection

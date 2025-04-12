@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('title', 'Home Page')
-
+ 
 @section('link')
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
         integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
@@ -17,13 +17,12 @@
             maxZoom: 18,
         }).addTo(map);
         var marker = L.marker([35.700105, 51.400394]).addTo(map)
-            .bindPopup('<b>webprog</b>').openPopup();
+            .bindPopup('<b>webprog.io</b>').openPopup();
     </script>
 @endsection
 
 @section('content')
-
-    @include('home.feature')
+    @include('home.features')
 
     <!-- food section -->
     <section class="food_section layout_padding-bottom">
@@ -372,11 +371,8 @@
     </section>
     <!-- end food section -->
 
-    <!-- about section -->
     @include('home.about')
-    <!-- end about section -->
 
-    <!-- contact section -->
     @include('home.contact')
-    <!-- end contact section -->
+    
 @endsection

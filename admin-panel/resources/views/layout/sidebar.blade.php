@@ -2,7 +2,9 @@
     <div class="position-sticky pt-3">
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" aria-current="page" href="{{ route('dashboard') }}">
+                <a class="nav-link 
+                {{ request()->is('/') ? 'active' : '' }}
+                " aria-current="page" href="{{ route('dashboard') }}">
                     <i class="bi bi-grid me-2"></i>
                     داشبورد
                 </a>
@@ -21,7 +23,9 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link
+                {{ request()->is('categories*') ? 'active' : ''}}
+                " href="{{ route('category.index') }}">
                     <i class="bi bi-grid-3x3-gap me-2"></i>
                     دسته بندی
                 </a>
@@ -44,8 +48,23 @@
                     تخفیف ها
                 </a>
             </li>
+            
+            <li class="nav-item">
+                <a class="nav-link
+                {{ request()->is('contact-us*') ? 'active' : ''}}
+                " href="{{ route('contact.index') }}">
+                    <i class="bi bi-chat-left-text me-2"></i>
+                    پیام های ارتباط با ما
+                </a>
+            </li>
+
             <li class="nav-item dropdown-center">
-                <a class="nav-link dropdown-toggle {{ request()->is(['sliders*', 'features*', 'about-us*']) ? 'active' : '' }}" href="#" role="button" data-bs-toggle="dropdown">
+                <a class="nav-link dropdown-toggle 
+                {{ request()->is('sliders*') ? 'active' : '' }}
+                {{ request()->is('features*') ? 'active' : '' }}
+                {{ request()->is('about-us*') ? 'active' : '' }}
+                {{ request()->is('footer*') ? 'active' : '' }}
+                " href="#" role="button" data-bs-toggle="dropdown">
                     <i class="bi bi-gear  me-2"></i>
                     تنظیمات سایت
                 </a>
@@ -60,7 +79,7 @@
                         <a class="dropdown-item" href="{{ route('about.index') }}">بخش درباره ما</a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="#">بخش فوتر</a>
+                        <a class="dropdown-item" href="{{ route('footer.index') }}">بخش فوتر</a>
                     </li>
                 </ul>
             </li>

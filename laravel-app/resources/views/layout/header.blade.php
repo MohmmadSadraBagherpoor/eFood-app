@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>webprog.io || @yield('title')</title>
-
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.rtl.min.css"
         integrity="sha384-+qdLaIRZfNu4cVPK/PxJJEy0B0f3Ugv8i482AKY7gwXwhaCroABd086ybrVKTa0q" crossorigin="anonymous">
 
@@ -30,7 +30,7 @@
             <header class="header_section">
                 <div class="container">
                     <nav class="navbar navbar-expand-lg custom_nav-container">
-                        <a class="navbar-brand" href="index.html">
+                        <a class="navbar-brand" href="{{ route('home.index') }}">
                             <span>
                                 webprog.io
                             </span>
@@ -44,17 +44,17 @@
 
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav mx-auto">
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="index.html">صفحه اصلی</a>
+                                <li class="nav-item {{ request()->is('/') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('home.index') }}">صفحه اصلی</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="menu.html">منو</a>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item {{ request()->is('about-us') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('about.index') }}">درباره ما</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="contact.html">تماس باما</a>
+                                <li class="nav-item {{ request()->is('contact-us') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('contact.index') }}">تماس باما</a>
                                 </li>
                             </ul>
                             <div class="user_option">
@@ -73,7 +73,8 @@
                 </div>
             </header>
             <!-- end header section -->
-            @if(request()->is('/'))
+
+            @if (request()->is('/'))
                 @include('home.slider')
             @endif
         </div>

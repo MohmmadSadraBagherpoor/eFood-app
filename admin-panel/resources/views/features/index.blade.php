@@ -10,33 +10,33 @@
     <div class="table-responsive">
         <table class="table align-middle">
             <thead>
-            <tr>
-                <th>عنوان</th>
-                <th>متن</th>
-                <th>آیکون</th>
-                <th>عملیات</th>
-            </tr>
+                <tr>
+                    <th>عنوان</th>
+                    <th>متن</th>
+                    <th>آیکون</th>
+                    <th>عملیات</th>
+                </tr>
             </thead>
             <tbody>
-            @foreach ($features as $feature)
-                <tr>
-                    <td>{{ $feature->title }}</td>
-                    <td>{{ $feature->body }}</td>
-                    <td>{{ $feature->icon }}</td>
-                    <td>
-                        <div class="d-flex">
-                            <a href="{{ route('feature.edit', ['feature' => $feature->id]) }}"
-                               class="btn btn-sm btn-outline-info me-2">ویرایش</a>
+                @foreach ($features as $feature)
+                    <tr>
+                        <td>{{ $feature->title }}</td>
+                        <td>{{ $feature->body }}</td>
+                        <td>{{ $feature->icon }}</td>
+                        <td>
+                            <div class="d-flex">
+                                <a href="{{ route('feature.edit', ['feature' => $feature->id]) }}"
+                                    class="btn btn-sm btn-outline-info me-2">ویرایش</a>
 
-                            <form action="{{ route('feature.destroy', ['feature' => $feature->id]) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-danger">حذف</button>
-                            </form>
-                        </div>
-                    </td>
-                </tr>
-            @endforeach
+                                <form action="{{ route('feature.destroy', ['feature' => $feature->id]) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-sm btn-danger">حذف</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

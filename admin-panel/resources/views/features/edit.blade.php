@@ -3,7 +3,7 @@
 
 @section('content')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h4 class="fw-bold">ویرایش ویژگی ها</h4>
+        <h4 class="fw-bold">ویرایش ویژگی</h4>
     </div>
 
     <form action="{{ route('feature.update', ['feature' => $feature->id]) }}" method="POST" class="row gy-4">
@@ -27,7 +27,7 @@
 
         <div>
             <button type="submit" class="btn btn-outline-dark mt-3">
-                ویرایش اسلایدر
+                ویرایش ویژگی
             </button>
         </div>
     </form>

@@ -8,35 +8,25 @@
 
     <div class="table-responsive">
         <table class="table align-middle">
-            @if(!$item)
-                <h4 class="text-center my-auto">اسلایدر موجودی نیست</h4>
-            @else
-                <thead>
+            <thead>
                 <tr>
                     <th>عنوان</th>
                     <th>متن</th>
                     <th>لینک</th>
                     <th>عملیات</th>
                 </tr>
-                </thead>
-                <tbody>
+            </thead>
+            <tbody>
                 <tr>
                     <td>{{ $item->title }}</td>
                     <td>{{ $item->body }}</td>
-                    <td>{{ $item->link }}</td>
+                    <td class="dir-ltr">{{ $item->link }}</td>
                     <td>
-                        <div class="d-flex">
-                            <a href="{{ route('about.edit', ['about' => $item->id]) }}" class="btn btn-sm btn-outline-info me-2">ویرایش</a>
-                            <form method="POST" action="{{ route('about.destroy', ['about' => $item->id]) }}">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-danger">حذف</button>
-                            </form>
-                        </div>
+                        <a href="{{ route('about.edit', ['about' => $item->id]) }}"
+                            class="btn btn-sm btn-outline-info me-2">ویرایش</a>
                     </td>
                 </tr>
-                </tbody>
-            @endif
+            </tbody>
         </table>
     </div>
 @endsection

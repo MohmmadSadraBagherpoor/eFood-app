@@ -20,18 +20,18 @@ class AboutUsController extends Controller
 
     public function update(Request $request, AboutUs $about)
     {
-        $data = $request->validate([
-            'title' => ['string', 'required'],
-            'link' => ['string', 'required'],
-            'body' => ['string', 'required'],
+        $request->validate([
+            'title' => 'required|string',
+            'body' => 'required|string',
+            'link' => 'required|string'
         ]);
-        $about->update($data);
-        return redirect()->route('about.index')->with('success', 'بخش ما با موفقیت ,ویرایش شد ...');
-    }
 
-    public function destroy(AboutUs $about)
-    {
-        $about->delete();
-        return redirect()->route('about.index')->with('warning', 'بخش ما با موفقیت حذف شد ...');
+        $about->update([
+            'title' => $request->title,
+            'body' => $request->body,
+            'link' => $request->link
+        ]);
+
+        return redirect()->route('about.index')->with('success', 'تنظیمات درباره ما با موفقیت ویرایش شد');
     }
 }
